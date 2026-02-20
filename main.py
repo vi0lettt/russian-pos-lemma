@@ -16,7 +16,11 @@ if __name__=='__main__':
         subprocess.run(['git','clone','https://github.com/UniversalDependencies/UD_Russian-SynTagRus.git'], check=True)
 
     # загрузка словаря
-    morph_dict = load_or_build_dict(TRAIN_FILES, folder_path=UD_FOLDER, rebuild=rebuild)
+    morph_dict, lemma_transforms = load_or_build_dict(
+        TRAIN_FILES,
+        folder_path=UD_FOLDER,
+        rebuild=rebuild
+    )
 
     # построение суффиксной модели
     suffix_stats = build_suffix_statistics(TRAIN_FILES, folder_path=UD_FOLDER)
@@ -31,6 +35,6 @@ if __name__=='__main__':
         for line in sys.stdin:
             line=line.strip()
             if not line: continue
-            print(lemmatize_sentence(line,morph_dict,suffix_probs))
+            print(lemmatize_sentence(line,morph_dict,suffix_probs,lemma_transforms))
     except KeyboardInterrupt:
         pass
