@@ -12,7 +12,7 @@ if __name__=='__main__':
     rebuild = '--rebuild' in sys.argv
 
     if not os.path.exists(UD_FOLDER):
-        print(f"📥 Папка {UD_FOLDER} не найдена, клонируем репозиторий...")
+        print(f"Папка {UD_FOLDER} не найдена, клонируем репозиторий...")
         subprocess.run(['git','clone','https://github.com/UniversalDependencies/UD_Russian-SynTagRus.git'], check=True)
 
     # загрузка словаря
