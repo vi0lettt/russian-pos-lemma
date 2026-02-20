@@ -34,5 +34,5 @@ def evaluate_accuracy_simple(folder_path, morph_dict, suffix_probs):
                 if predicted_lemma==gold_lemma: correct_lemma += 1
 
     print("\n========== РЕЗУЛЬТАТЫ ==========")
-    print(f"Accuracy POS: {correct_pos/total:.4f}")
-    print(f"Accuracy Lemma: {correct_lemma/total:.4f}")
+    print(f"Accuracy POS: {correct_pos/total:.2f}")
+    print(f"Accuracy Lemma: {correct_lemma/total:.2f}")
